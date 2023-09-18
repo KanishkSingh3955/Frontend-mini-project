@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital clock</title>
+</head>
+<body onload="showTime()">
+    <h1>Digital clock</h1>
+    <script>
+        function showTime(){
+            var date = new Date();
+            var hours = date.getHours();
+            var todayDate =date.getDate();
+            var minute = date.getMinutes();
+            var seconds = date.getSeconds();
+            var day = date.getDay();
+            var session = "AM"
+            var todayDay ="";
+            switch(day){
+                case 1:
+                    todayDay = "Monday";
+                break;
+               
+                case 2:
+                    todayDay = "Tuesday";
+                break;
+                case 3:
+                    todayDay = "Wednesday";
+                break;
+                case 4:
+                    todayDay = "Thursday";
+                break;
+                case 5:
+                    todayDay = "Friday";
+                break;
+                case 6:
+                    todayDay = "Saturday";
+                break;
+                case 7:
+                    todayDay = "Sunday";
+                break;
+
+            }
+
+            hours = hours < 10 ? "0"+hours  : hours ;
+            minute = minute < 10 ? "0"+minute:minute;
+            seconds = seconds < 10 ? "0"+seconds:seconds;
+            var time = todayDate +":"+ todayDay +" : "+ hours + " : " + minute + " : " + seconds 
+            document.getElementsByTagName('h1')[0].innerText = time ;
+            
+            setTimeout(showTime,1000);
+        }
+       
+    </script>
+</body>
+</html>
